@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+<body>
+  <div id="wrapper">
+  {{ partial "webtitle.html" . -}}
+  {{ partial "navigator.html" . -}}
+
+    <div class="clearboth"></div>
+    <div id="webpage-content">
+      {{ block "main" . -}}{{ end -}}
+    </div>
+  </div>
+
+  {{ partial "footer.html" . -}}
+  {{ partial "scripts.html" . -}}
+</body>
+</html>

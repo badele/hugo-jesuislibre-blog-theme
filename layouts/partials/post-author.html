@@ -1,0 +1,11 @@
+{{ if isset .Site.Author "bio" -}}
+<div id="author-box">
+  <a href="{{ .Site.Author.link }}">
+    <img src="{{ .Site.Author.img }}" alt="{{ .Site.Author.name }}" width="128" height="108"/>
+  </a>
+  <div class="infos">
+    <h3>A propos de <a href="{{ .Site.Author.link }}">{{ .Site.Author.name -}}</a></h3>
+    <p>{{ .Site.Author.bio -}}</p>
+  </div>
+</div>
+{{ end -}}

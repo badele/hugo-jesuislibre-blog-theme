@@ -1,0 +1,37 @@
+{{ define "title" }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ end }}
+
+{{ define "main" }}
+
+
+<div class="content-wrapper">
+  <div class="content">
+
+    <h1>{{ .Title }}</h1>
+
+    {{ range first 10 .Paginator.Pages }}
+
+    {{ $baseurl := .Site.BaseURL }}
+    <div class=article-overview>
+        <h2><a href="{{ .Permalink }}" title="Permalink to {{ .Title }}">{{ .Title }}</a></h2>
+        <p class='description'>{{ .Description }}</p>
+        <p class='summary'>
+            <span><img src="{{ .Site.Author.smallimg }}" alt="{{ .Site.Author.name }}" width="24" height="20"/></span>
+            <span>{{ .Site.Author.name }}</span>
+            <span> | </span>
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ .Date.Day }} {{ index $.Site.Data.long_month (printf "%d" .Date.Month) }} {{ .Date.Year }}</time>
+            <span> | </span>
+            <span class="tags">
+              {{ range .Params.tags }}
+                <a class="tag" href="{{ $baseurl }}tags/{{ . | urlize}}">{{ . }}</a>
+              {{ end }}
+            </span>
+        </p>
+    </div>
+
+
+    {{ end }}
+    </div>
+</div>
+
+    {{ partial "pagination.html" . }}
+{{ end }}

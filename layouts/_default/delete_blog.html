@@ -1,0 +1,15 @@
+  {{ .Content }}
+
+          {{ if .Params.tags }}
+ <span class="tags">
+
+      {{ $baseurl := .Site.BaseURL }}
+      {{ range .Params.tags }}
+        <a class="tag" href="{{ $baseurl }}tags/{{ . | urlize}}">{{ . }}</a>
+        {{ end }}
+</span>
+{{ end }}
+
+
+
+  {{ partial "post-author.html" . }}

@@ -1,0 +1,12 @@
+        <div id=webpage-footer>
+          <div class="textwidget">
+              {{ range .Site.Params.Buttons }}
+            <a title="{{ .Alt }}" href="{{ .URL }}"><img src="{{ .Img }}" alt="{{ .Alt }} button"/></a>
+            {{ end }}
+          </div>
+
+          <p>
+            Carburize with <a href="http://gohugo.io">Hugo {{ .Hugo.Version }}</a></p>
+          <p><a href="https://github.com/badele/hugo-theme-jesuislibre">jesuislibre hugo theme</a></p>
+          <p><a href="http://bruno.adele.im">about author</a></p>
+      </div>

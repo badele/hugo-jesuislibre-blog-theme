@@ -1,0 +1,12 @@
+githubname = "hugo-jesuislibre-blog-theme"
+license = "GPL"
+licenselink = "https://github.com/badele/hugo-jesuislibre-blog-theme/LICENSE.md"
+description = "Jesuislibre blog theme for Hugo blog engine"
+homepage = "https://github.com/badele/hugo-jesuislibre-blog-theme"
+tags = ["blog"]
+features = ["responsive", "thumbnail", "syntax highlight"]
+min_version = 0.16
+
+[author]
+  name = "Bruno Adelé"
+  homepage = "http://bruno.adele.im"

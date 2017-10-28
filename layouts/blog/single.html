@@ -1,0 +1,49 @@
+{{ define "title" -}}{{ .Title -}} - {{ end -}}
+
+{{ define "meta" -}}
+{{ partial "blog-meta.html" . -}}
+{{ partial "blog-meta-json.html" . -}}
+{{ end -}}
+
+{{ define "main" -}}
+
+{{ if isset .Site.Author "bio" -}}
+
+<div id="author-publish">
+  <a href="{{ .Site.Author.link }}">
+    <img src="{{ .Site.Author.img }}" alt="{{ .Site.Author.name }}" width="128" height="108"/>
+  </a>
+  <div class="infos">
+    <h3><a href="{{ .Site.Author.link }}">{{ .Site.Author.name }}</a></h3><span class="follow"><a alt="Follow me" href="{{ .Site.Author.follow }}">Follow</a></span>
+    <p>
+      <a href="{{ .Site.Author.link }}">{{ .Site.Author.job }}
+      </br>
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ .Date.Day }} {{ index $.Site.Data.long_month (printf "%d" .Date.Month) }} {{ .Date.Year }}</time></a>
+      </p>
+  </div>
+</div>
+
+{{ end }}
+
+<article id="blog-post">
+  <h1>{{ .Title }}</h1>
+
+  {{ .Content }}
+
+{{ if .Params.tags }}
+<span class="tags">
+
+{{ $baseurl := .Site.BaseURL }}
+{{ range .Params.tags }}
+  {{ if not (eq . "planet-libre") }}
+  <a class="tag" href="{{ $baseurl }}tags/{{ . | urlize}}">{{ . }}</a>
+  {{ end }}
+{{ end }}
+</span>
+{{ end }}
+
+{{ partial "post-author.html" . }}
+
+</article>
+
+{{ end -}}

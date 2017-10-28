@@ -1,0 +1,24 @@
+{{ if .Site.Params.jsl.piwik_id }}
+<!-- Piwik -->
+<script type="text/javascript">
+        var pkBaseURL = (("https:" == document.location.protocol) ? "https://{{ .Site.Params.jsl.piwik_server }}" : "http://{{ .Site.Params.jsl.piwik_server }}");
+        document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
+<script type="text/javascript">
+        try {
+        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", {{ .Site.Params.jsl.piwik_id }});
+        piwikTracker.trackPageView();
+        piwikTracker.enableLinkTracking();
+        } catch( err ) {}
+
+</script>
+
+<noscript>
+    <p><img src="http://{{ .Site.Params.jsl.piwik_server }}/piwik.php?idsite={{ .Site.Params.jsl.piwik_id }}"
+            style="border:0" alt=""/></p>
+</noscript>
+{{end}}
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
